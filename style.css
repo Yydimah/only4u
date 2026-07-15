@@ -149,8 +149,8 @@ body {
     user-select: none;
     z-index: 10;
 }
-.camera { top: 45px; left: 3px; transform: rotate(-10deg); }
-.flower-top { top: 45px; right: -3px; }
+.camera { top: 70px; left: 3px; transform: rotate(-10deg); }
+.flower-top { top: 70px; right: -3px; }
 .ticket { bottom: 100px; left: 15px; transform: rotate(-15deg); font-family: sans-serif; background: #fff; padding: 2px 6px; border: 1px dashed red; font-size: 0.75rem; color: red; }
 .butterfly { bottom: 160px; right: 2px; transform: rotate(15deg); }
 .flower-pink { top: 15px; right: 15px; }
@@ -167,7 +167,7 @@ body {
 
 .paper-tape {
     position: absolute;
-    top: 64px;
+    top: 80px;
     width: 65px;
     height: 18px;
     background: rgba(238, 205, 130, 0.7);
