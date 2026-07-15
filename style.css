@@ -11,20 +11,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Perbaikan 1: Menggunakan dvh (Dynamic Viewport Height) agar tidak terpotong address bar Chrome/Safari HP */
     min-height: 100vh;
     min-height: 100dvh; 
     overflow: hidden;
-    padding: 10px;
+    padding: 15px; /* Sedikit ruang di tepian layar A32 */
 }
 
-/* Container Utama */
+/* Container Utama - Disesuaikan untuk rasio jangkung Samsung A32 */
 .slider-container {
     position: relative;
     width: 100%;
-    max-width: 360px; /* Lebar ideal untuk genggaman satu tangan di HP */
-    height: 70vh; /* Sedikit dikurangi agar sisa ruang bawah cukup untuk tombol navigasi */
-    height: 70dvh;
+    max-width: 380px; /* Sangat pas dengan lebar viewport Samsung A32 */
+    height: 72vh; 
+    height: 72dvh;
+    max-height: 640px; /* Mencegah scrapbook terlalu melar/panjang ke bawah di layar 20:9 */
     perspective: 1000px;
 }
 
@@ -56,9 +56,9 @@ body {
     background-size: 8px 8px;
     width: 100%;
     height: 100%;
-    border-radius: 12px; /* Dipercantik sedikit lengkungan sudutnya */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    padding: 20px 15px; /* Padding disesuaikan agar area konten lebih luas di HP */
+    border-radius: 16px; /* Sudut kertas sedikit lebih membulat manis */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    padding: 25px 20px; /* Padding pas agar tidak terlalu sempit di layar lebar A32 */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -83,20 +83,20 @@ body {
 /* Gaya Tulisan Koran Potong */
 .scrapbook-title-box, .cutout-container {
     background: #f7ede2;
-    padding: 15px 10px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    line-height: 2.0;
-    width: 90%;
+    line-height: 2.1;
+    width: 92%;
 }
 
 .letter {
     font-family: 'Fredoka One', cursive;
     display: inline-block;
-    padding: 4px 10px; /* Padding sedikit dikecilkan agar muat di layar HP sempit */
-    margin: 2px;
-    font-size: 1.3rem; /* Ukuran teks ransom dioptimasi untuk HP */
+    padding: 5px 12px; 
+    margin: 3px;
+    font-size: 1.4rem; /* Ukuran pas untuk layar A32 */
     box-shadow: 2px 3px 5px rgba(0,0,0,0.15);
     transform: rotate(var(--r, 0deg));
 }
@@ -113,54 +113,54 @@ body {
 /* Teks Tulisan Tangan */
 .subtitle {
     color: #fff;
-    margin-top: 15px;
-    font-size: 1.2rem;
+    margin-top: 20px;
+    font-size: 1.3rem;
 }
 
 .handwritten-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     color: #5c4d3c;
     text-align: center;
 }
 
 .paragraph-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.5rem; /* Sedikit dikecilkan agar tidak scrollable */
-    line-height: 1.4;
+    font-size: 1.6rem; 
+    line-height: 1.45;
     color: #4a3e3d;
     text-align: center;
-    padding: 0 5px;
+    padding: 0 8px;
 }
 
 .date-text {
     align-self: flex-end;
-    margin-top: 8px;
+    margin-top: 12px;
     margin-right: 10px;
     font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #7c6c5c;
 }
 
 /* Dekorasi & Aksesoris Tempelan */
 .decor {
     position: absolute;
-    font-size: 2rem; /* Diperkecil agar tidak menutupi teks utama di HP */
+    font-size: 2.2rem; 
     user-select: none;
     z-index: 10;
 }
 .camera { top: 15px; left: 15px; transform: rotate(-10deg); }
 .flower-top { top: 20px; right: 20px; }
-.ticket { bottom: 40px; left: 15px; transform: rotate(-15deg); font-family: sans-serif; background: #fff; padding: 2px 6px; border: 1px dashed red; font-size: 0.7rem; color: red; }
-.butterfly { bottom: 50px; right: 20px; transform: rotate(15deg); }
+.ticket { bottom: 45px; left: 15px; transform: rotate(-15deg); font-family: sans-serif; background: #fff; padding: 2px 6px; border: 1px dashed red; font-size: 0.75rem; color: red; }
+.butterfly { bottom: 55px; right: 20px; transform: rotate(15deg); }
 .flower-pink { top: 15px; right: 15px; }
 .sparkle { top: 15px; left: 15px; }
 .star-yellow { top: 20px; left: 15px; }
 .flower-small { top: 20px; right: 15px; }
-.heart-yellow { bottom: 25px; left: 25px; }
-.flower-hibiscus { top: -10px; right: -10px; font-size: 2.5rem; }
+.heart-yellow { bottom: 30px; left: 30px; }
+.flower-hibiscus { top: -10px; right: -10px; font-size: 2.8rem; }
 .butterfly-bottom { bottom: 5px; left: 5px; }
-.ribbon-red { top: 5px; left: 41.5%; font-size: 2.5rem; }
+.ribbon-red { top: 5px; left: 41.5%; font-size: 2.8rem; }
 .leaves { top: 40%; left: 5px; }
 .butterfly-right { top: 43%; right: 5px; }
 .star-bottom { bottom: 15px; left: 43%; }
@@ -168,7 +168,7 @@ body {
 .paper-tape {
     position: absolute;
     top: 25px;
-    width: 60px;
+    width: 65px;
     height: 18px;
     background: rgba(238, 205, 130, 0.7);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -181,22 +181,22 @@ body {
     background: #b81d52;
     color: white;
     border: none;
-    padding: 10px 24px;
+    padding: 12px 26px;
     border-radius: 25px;
     font-family: 'Gochi Hand', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    margin-top: 15px;
+    margin-top: 20px;
     transition: transform 0.2s;
-    -webkit-tap-highlight-color: transparent; /* Menghilangkan highlight biru saat diklik di HP */
+    -webkit-tap-highlight-color: transparent;
 }
 .btn-open:active { transform: scale(0.95); }
 
 /* Polaroid Frame */
 .polaroid {
     background: #fff;
-    padding: 8px 8px 18px 8px; /* Mengurangi padding luar di HP */
+    padding: 10px 10px 20px 10px; 
     box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
     border: 1px solid #eaeaea;
     text-align: center;
@@ -211,13 +211,13 @@ body {
 
 .polaroid-caption {
     font-family: 'Caveat', cursive;
-    margin-top: 6px;
-    font-size: 1.2rem;
+    margin-top: 8px;
+    font-size: 1.3rem;
     color: #333;
 }
 
 .polaroid-main {
-    width: 80%; /* Sedikit diperkecil agar pas */
+    width: 82%; 
     transform: rotate(-3deg);
     position: relative;
 }
@@ -236,50 +236,50 @@ body {
 .wishes-title {
     font-family: 'Fredoka One', sans-serif;
     color: #b81d52;
-    font-size: 1.6rem;
-    margin-bottom: 12px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
 .wishes-list {
     list-style: none;
     width: 90%;
 }
 .wishes-list li {
-    font-size: 1.3rem; /* Ukuran pas untuk list harapan di HP */
+    font-size: 1.4rem; 
     color: #4a3e3d;
-    margin: 8px 0;
+    margin: 10px 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 /* Grid Multiple Polaroid (Slide Last) */
 .grid-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px; /* Jarak antar polaroid dipersempit */
-    padding: 20px 10px;
+    gap: 12px; 
+    padding: 15px 10px;
     width: 100%;
 }
 .grid-page .polaroid {
-    padding: 5px 5px 10px 5px;
+    padding: 6px 6px 12px 6px;
 }
 .grid-page .polaroid-caption {
-    font-size: 0.9rem; /* Ukuran caption grid polaroid diperkecil */
+    font-size: 1rem; 
 }
 .p1 { transform: rotate(-4deg); }
 .p2 { transform: rotate(3deg); }
 .p3 { transform: rotate(2deg); }
 .p4 { transform: rotate(-3deg); }
 
-/* Navigasi Controls - Opsi Desain Washi Tape */
+/* Navigasi Controls */
 .controls-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Dipersempit agar muat di semua lebar HP */
+    gap: 20px; 
     width: 100%;
-    max-width: 360px;
-    margin-top: 15px; /* Mengurangi margin agar menghemat tempat */
+    max-width: 380px;
+    margin-top: 20px; 
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
@@ -292,9 +292,9 @@ body {
 
 .nav-btn {
     border: none;
-    padding: 8px 20px; /* Area klik disesuaikan agar pas di jari namun efisien tempat */
+    padding: 10px 24px; 
     font-family: 'Gochi Hand', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     box-shadow: 2px 4px 6px rgba(0,0,0,0.1);
@@ -321,7 +321,7 @@ body {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     opacity: 0.8;
 }
 
@@ -378,30 +378,30 @@ body {
     background: rgba(255,255,255,0.2);
     border: 2px solid white;
     border-radius: 50%;
-    width: 40px; /* Sedikit diperkecil untuk menghemat ruang pojok layar */
-    height: 40px;
+    width: 42px; 
+    height: 42px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* --- OPTIMASI KADO INTERAKTIF DI HP --- */
+/* --- INTERAKTIF KADO (SAMSUNG A32 FIT) --- */
 .tap-hint {
     font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #7c6c5c;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     animation: bounce 1.5s infinite ease-in-out;
 }
 
 .gift-container {
     position: relative;
-    width: 130px; /* Dipersempit agar tidak memakan layar vertikal */
-    height: 110px; 
+    width: 140px; 
+    height: 115px; 
     cursor: pointer;
-    margin-top: -15px;
-    margin-bottom: 35px; /* Dikurangi jaraknya agar surprise text muat di bawah */
+    margin-top: -10px;
+    margin-bottom: 40px; 
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -410,8 +410,8 @@ body {
     position: absolute;
     top: 0; 
     left: -4px;
-    width: 138px;
-    height: 20px;
+    width: 148px;
+    height: 22px;
     background: #c72c61;
     border-radius: 4px;
     z-index: 5;
@@ -423,7 +423,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 18px;
+    width: 20px;
     height: 100%;
     background: #f1c40f;
 }
@@ -431,10 +431,10 @@ body {
 .gift-lid::before {
     content: '💝';
     position: absolute;
-    top: -20px;
+    top: -22px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 /* Badan Kado */
@@ -442,8 +442,8 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 130px;
-    height: 90px; 
+    width: 140px;
+    height: 95px; 
     background: #b81d52;
     border-radius: 0 0 4px 4px;
     z-index: 3;
@@ -454,7 +454,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 16px;
+    width: 18px;
     height: 100%;
     background: #f1c40f;
 }
@@ -470,47 +470,21 @@ body {
     visibility: hidden; 
     z-index: 2;
     transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    line-height: 2.0; 
+    line-height: 2.1; 
     width: max-content;
 }
 
 .gift-container.open .gift-lid {
-    transform: translateY(-50px) rotate(-15deg); 
+    transform: translateY(-55px) rotate(-15deg); 
 }
 
 .gift-container.open .gift-surprise-text {
     opacity: 1;
     visibility: visible;
-    /* Skala disesuaikan agar muat cantik di HP, tidak melorot terlalu ke bawah */
-    transform: translate(-50%, 75px) scale(0.65); 
+    transform: translate(-50%, 80px) scale(0.70); /* Proporsi teks kado terbuka yang sangat nyaman dibaca di layar A32 */
 }
 
-/* Animasi petunjuk teks melompat pelan */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-}
-
-/* --- HANDPHONE DENGAN LAYAR SANGAT KECIL (Contoh: iPhone SE / Screen Height < 670px) --- */
-@media (max-height: 670px) {
-    .slider-container {
-        height: 72vh;
-        height: 72dvh;
-    }
-    .paper-page {
-        padding: 12px 10px;
-    }
-    .paragraph-text {
-        font-size: 1.35rem;
-    }
-    .letter {
-        font-size: 1.1rem;
-        padding: 3px 8px;
-    }
-    .decor {
-        font-size: 1.5rem;
-    }
-    .grid-page {
-        gap: 6px;
-    }
+    50% { transform: translateY(-4px); }
 }
