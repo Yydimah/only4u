@@ -17,45 +17,48 @@ body {
     padding: 15px; /* Sedikit ruang di tepian layar A32 */
 }
 
-/* Container Utama - Disesuaikan untuk rasio jangkung Samsung A32 */
+/* Container Utama - Fleksibel mengikuti tinggi slide yang aktif */
 .slider-container {
     position: relative;
     width: 100%;
     max-width: 380px; /* Sangat pas dengan lebar viewport Samsung A32 */
-    height: 72vh; 
-    height: 72dvh;
-    max-height: 640px; /* Mencegah scrapbook terlalu melar/panjang ke bawah di layar 20:9 */
     perspective: 1000px;
+    display: grid; /* Menggunakan grid agar slide menumpuk rapi di satu tempat */
+    align-items: start; /* Aligned ke atas agar slide pendek tidak melayang */
 }
 
 /* Sistem Slider */
 .slide {
-    position: absolute;
+    grid-area: 1 / 1; /* Semua slide menempati koordinat grid yang sama */
     width: 100%;
-    height: 100%;
+    height: auto; /* Tinggi slide mengikuti isi konten di dalamnya */
     opacity: 0;
     transform: translateX(100%) scale(0.9);
     transition: all 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     pointer-events: none;
+    z-index: 1;
 }
 
 .slide.active {
     opacity: 1;
     transform: translateX(0) scale(1);
     pointer-events: auto;
+    position: relative; /* Slide aktif yang menentukan tinggi container saat ini */
+    z-index: 2;
 }
 
-/* Kertas Halaman Scrapbook */
+/* Kertas Halaman Scrapbook - Ukuran Menyesuaikan Isi */
 .paper-page {
     background: #f4ebd9; 
     background-image: radial-gradient(#e4d5be 1px, transparent 0); 
     background-size: 8px 8px;
     width: 100%;
-    height: 100%;
+    height: auto; /* Tinggi kertas otomatis menyesuaikan isi slide */
+    min-height: 250px; /* Batas tinggi minimum agar tidak terlalu pesek */
     border-radius: 16px; /* Sudut kertas sedikit lebih membulat manis */
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     padding: 25px 20px; /* Padding pas agar tidak terlalu sempit di layar lebar A32 */
@@ -65,6 +68,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Efek Sobek Pinggir Kertas (Slide 5) */
@@ -149,8 +153,8 @@ body {
     user-select: none;
     z-index: 10;
 }
-.camera { top: 70px; left: 3px; transform: rotate(-10deg); }
-.flower-top { top: 70px; right: -3px; }
+.camera { top: 45px; left: 3px; transform: rotate(-10deg); }
+.flower-top { top: 45px; right: -3px; }
 .ticket { bottom: 100px; left: 15px; transform: rotate(-15deg); font-family: sans-serif; background: #fff; padding: 2px 6px; border: 1px dashed red; font-size: 0.75rem; color: red; }
 .butterfly { bottom: 160px; right: 2px; transform: rotate(15deg); }
 .flower-pink { top: 15px; right: 15px; }
@@ -167,7 +171,7 @@ body {
 
 .paper-tape {
     position: absolute;
-    top: 80px;
+    top: 68px;
     width: 65px;
     height: 18px;
     background: rgba(238, 205, 130, 0.7);
@@ -481,7 +485,7 @@ body {
 .gift-container.open .gift-surprise-text {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, 80px) scale(0.70); /* Proporsi teks kado terbuka yang sangat nyaman dibaca di layar A32 */
+    transform: translate(-50%, 65px) scale(0.70); /* Posisi disesuaikan agar tidak meluber keluar kertas */
 }
 
 @keyframes bounce {
